@@ -1,0 +1,19 @@
+
+services:
+    drupal:
+      image: drupal:9.3.13
+      ports:
+        - 8080:80
+      volumes:
+        - /var/www/html/modules
+        - /var/www/html/profiles
+        - /var/www/html/themes
+        - /var/www/html/sites
+    db:
+      image: postgres:14.3
+      ports:
+        - 5432
+      environment:
+        POSTGRES_PASSWORD: "pgdima"
+        POSTGRES_DB: "drupal"
+        POSTGRES_USER: "user"
